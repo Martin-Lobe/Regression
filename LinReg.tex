@@ -1,0 +1,91 @@
+\documentclass[a4paper, 12pt]{scrartcl}
+\usepackage[brazil]{babel}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsthm,amssymb}
+\setlength{\parindent}{1cm} % padrão 15pt.
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{latexsym,dsfont}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{caption}
+\usepackage[brazilian]{cleveref}
+\theoremstyle{plain}% default
+\newtheorem{teo}{Teorema}
+\newtheorem{lema}[teo]{Lema}
+\newtheorem{prop}[teo]{Proposição}
+\newtheorem{cor}[teo]{Corolário}
+
+\usepackage{setspace}
+\theoremstyle{definition}
+\newtheorem{defin}[teo]{Definição}
+\newtheorem{conj}{Conjectura}
+\newtheorem{exmp}{Exemplo}
+
+\theoremstyle{remark}
+\newtheorem*{obs}{Observação}
+\newtheorem*{nota}{Nota}
+\newtheorem{case}{Case}
+
+% \usepackage[style=abnt]{biblatex}
+% \addbibresource{bibliography.bib}
+
+\def \Real {\mathds{R}}
+\def \Natural {\mathds{N}}
+\DeclareMathOperator{\mdc}{mdc}
+
+\title{Regressão Linear}
+
+\author{Martin Lobe \\ Orientador: Luiz Rafael dos Santos}
+
+\date{}
+\begin{document}
+\onehalfspacing
+\maketitle
+ 
+\section*{Introdução}
+
+Em regressão, buscamos uma função $f$ da qual mapeia pontos em $\Real^D$ para valores correspondentes em $f(x) \in R$
+O objetivo é criar um modelo que a partir da informação de treinamento, consiga generalizar o suficiente para prever os resultados de novos pontos de entrada.
+
+
+
+\section{Formulando o problema}
+Abordaremos o problema de forma probabilistica. O motivo para isso é devido ao \textit{Observation Noise}.
+\textit{Observation Noise} é a variabilidade do erro que possui em relação aos valores observaos e as funções que estão por trás desses medidas feitas. 
+Estamos considerando que essas variabiliddades são igualmente e independentemente distribuidas
+\[
+    p(y|x) = \mathcal{N}(y|f(x), \sigma^2)
+\]
+(Estamos comparando a aproximação de $p$ com a função gaussiana sendo $\mathcal{N}$)
+\\
+Na equação mostrada, temos que $x \in \Real^D$, os nossos valores recebidos, enquanto $y \in \Real$ é o valor resultado pela função nesse ponto, sendo o nosso objetivo.
+
+\[
+    y = f(x)+\epsilon ; \epsilon ~ \mathcal{N}(0,\epsilon^2)
+\]
+Como podemos ver abaixo, f é a função que estamos querendo descobrir, com o valor de y sendo próximo dele. Essa proximidade é uma probabilidade dada pela função Gaussiana.
+Essa função f é desconhecida, e o objetivo é encontrar uma função que seja próximo o suficiente dela.
+
+Vamos começar com funções paramétricas. Começaremos considerando que a variancia $\sigma^2$ é conhecida, e trabalharemos em encontrar um parametro $\theta$
+
+\begin{exmp}[Exemplo]\label{exmp: B} 
+Para $ x,\theta \in \Real $, o modelo de regressão linear se torna uma reta, ou seja uma função linear.
+O parametro $\theta $ é a inclinação dessa reta. .
+%talvez ver alguma ligação com derivada??
+\end{exmp}
+
+
+
+
+\begin{exmp}[Exemplo]\label{exmp: B} 
+\end{exmp}
+
+
+% \printbibliography
+\end{document}
