@@ -50,41 +50,68 @@
  
 \section*{Introdução}
 
-Em regressão, buscamos uma função $f$ da qual mapeia pontos em $\Real^D$ para valores correspondentes em $f(x) \in R$
+Em regressão, buscamos uma função $f$ da qual mapeia pontos em $\Real^D$ para valores correspondentes em $f(x) \in \Real$
 O objetivo é criar um modelo que a partir da informação de treinamento, consiga generalizar o suficiente para prever os resultados de novos pontos de entrada.
+
+\section{Revisão de Conceitos}
+
+\begin{definition}[Verossimilhança]
+    A verossimilhança é um valor que corresponde a quão provável que nossos dados gerados tenham vindo de um modelo linear. 
+    Isso quer dizer, nossos dados que serão obtidos atráves da própria função possuem uma maior verossimilhança. Alguns modelos podem ser menos adequados, e isso mostra uma verossimilhança baixa.
+\end{definition}
+
+\begin{definition}[I.I.D]
+    Significa independentemente, igualmente distríbuido.
+\end{definition}
+
+- Verossimilhança
+
+- i.i.d.?
+
+%Colocar explicações de conceitos
+%Desenvolver quadrados mínimos
 
 
 
 \section{Formulando o problema}
-Abordaremos o problema de forma probabilistica. O motivo para isso é devido ao \textit{Observation Noise}.
+Abordaremos o problema de forma probabilística. O motivo para isso é devido ao \textit{Observation Noise}.
 \textit{Observation Noise} é a variabilidade do erro que possui em relação aos valores observaos e as funções que estão por trás desses medidas feitas. 
-Estamos considerando que essas variabiliddades são igualmente e independentemente distribuidas
+Estamos considerando que essas variabiliddades são igualmente e independentemente distríbuidas
 \[
-    p(y|x) = \mathcal{N}(y|f(x), \sigma^2)
+    p(y\mid x) = \mathcal{N}(y\mid f(x), \sigma^2)
 \]
 (Estamos comparando a aproximação de $p$ com a função gaussiana sendo $\mathcal{N}$)
 \\
 Na equação mostrada, temos que $x \in \Real^D$, os nossos valores recebidos, enquanto $y \in \Real$ é o valor resultado pela função nesse ponto, sendo o nosso objetivo.
 
 \[
-    y = f(x)+\epsilon ; \epsilon ~ \mathcal{N}(0,\epsilon^2)
+    y = f(x)+\epsilon ; \epsilon \in  \mathcal{N}(0,\sigma^2)
 \]
-Como podemos ver abaixo, f é a função que estamos querendo descobrir, com o valor de y sendo próximo dele. Essa proximidade é uma probabilidade dada pela função Gaussiana.
+
+Como podemos ver abaixo, $f$ é a função que estamos querendo descobrir, com o valor de y sendo próximo dele. Essa proximidade é uma probabilidade dada pela função Gaussiana.
 Essa função f é desconhecida, e o objetivo é encontrar uma função que seja próximo o suficiente dela.
 
-Vamos começar com funções paramétricas. Começaremos considerando que a variancia $\sigma^2$ é conhecida, e trabalharemos em encontrar um parametro $\theta$
+Vamos começar com funções paramétricas. Começaremos considerando que a variancia $\sigma^2$ é conhecida, e trabalharemos em encontrar um parametro $\theta$. 
+Em regressão linear, teremos o caso especial em que $\theta$ aparece linearmente no modelo.
+
+\[
+    p(y\mid x) = \mathcal{N}(y\mid x^T\theta, \sigma^2) \Leftrightarrow y = x^T\theta
+\]
 
 \begin{exmp}[Exemplo]\label{exmp: B} 
-Para $ x,\theta \in \Real $, o modelo de regressão linear se torna uma reta, ou seja uma função linear.
-O parametro $\theta $ é a inclinação dessa reta. .
-%talvez ver alguma ligação com derivada??
+Para $ x,\theta \in \Real $, o modelo de regressão linear se torna uma reta, ou seja uma função linear,
+o parametro $\theta $ é a inclinação dessa reta.
+%talvez ver alguma ligação com derivada?? 
 \end{exmp}
 
 
 
 
 \begin{exmp}[Exemplo]\label{exmp: B} 
+Em outros casos, $\theta$ será um vetor. Nessa ideia, utilizaremos um número $m$ de elementos, dos quais $a_i$ serão os termos que precedem ${x_j}i$. Após termos que $\theta$ será multiplicado por todos esses vetores.
+Após resolver o sistema linear e descobrir $\theta$ então nós teremos
 \end{exmp}
+
 
 
 % \printbibliography
