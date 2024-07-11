@@ -55,14 +55,14 @@ O objetivo é criar um modelo que a partir da informação de treinamento, consi
 
 \section{Revisão de Conceitos}
 
-\begin{definition}[Verossimilhança]
+\begin{defin}[Verossimilhança]
     A verossimilhança é um valor que corresponde a quão provável que nossos dados gerados tenham vindo de um modelo linear. 
     Isso quer dizer, nossos dados que serão obtidos atráves da própria função possuem uma maior verossimilhança. Alguns modelos podem ser menos adequados, e isso mostra uma verossimilhança baixa.
-\end{definition}
+\end{defin}
 
-\begin{definition}[I.I.D]
+\begin{defin}[I.I.D]
     Significa independentemente, igualmente distríbuido.
-\end{definition}
+\end{defin}
 
 - Verossimilhança
 
@@ -107,12 +107,24 @@ o parametro $\theta $ é a inclinação dessa reta.
 
 
 
-\begin{exmp}[Exemplo]\label{exmp: B} 
-Em outros casos, $\theta$ será um vetor. Nessa ideia, utilizaremos um número $m$ de elementos, dos quais $a_i$ serão os termos que precedem ${x_j}i$. Após termos que $\theta$ será multiplicado por todos esses vetores.
-Após resolver o sistema linear e descobrir $\theta$ então nós teremos
-\end{exmp}
+\begin{teo}[Theorema de Gauss Markov]\label{teo: A} 
+   Para um modelo linear padrão, o menor estimador de variancia linear sem tendencia para $\beta_i$
+   é dado pelo i-ésimo componente de $\hat{\beta}_i$
+\end{teo}
 
+\begin{prop}[Prop. 1]
+    Se $x \in R^{m \times n}$ e $rank(x) = n$ então $(x\top x)$ é inversível (não-singular).
+\end{prop}
 
+\begin{prop}[Prop. 2]
+    As equações normais sempre tem solução, ou equivalentemente, $x\top \beta \in Im(x\top x) \subset R^n$.
+\end{prop}
+
+\begin{lema}
+    $Im(x \top x) = Im(x \top)$.
+    \\
+    Prova. Como se
+\end{lema}
 
 % \printbibliography
 \end{document}
